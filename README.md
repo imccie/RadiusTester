@@ -7,7 +7,7 @@ RadiusTester
 
 [pyrad2.0](https://github.com/wichert/pyrad)
 
-[gevent1.0](https://github.com/SiteSupport/gevent)s
+[gevent1.0](https://github.com/SiteSupport/gevent)
 
 ## usage
 
