@@ -223,8 +223,8 @@ class AuthPacket2(AuthPacket):
 
 if __name__ == '__main__':
     _args = sys.argv
-    _args = _args[_args.index(__file__)+1:]
-    args =  parser.parse_args(_args)
+    # _args = _args[_args.index(__file__)+1:]
+    args =  parser.parse_args(_args[1:])
     print args
     if  args.auth or args.acct:
         client = TestClient(args)
