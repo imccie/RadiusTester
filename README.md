@@ -1,7 +1,9 @@
 RadiusTester
 ============
 
-## runtime environment
+RadiusTester是一个radius测试客户端，支持命令行和GUI两种方式。
+
+## runtime environment  - 运行环境
 
 [python2.7+](http://python.org/)
 
@@ -9,7 +11,15 @@ RadiusTester
 
 [gevent1.0](https://github.com/SiteSupport/gevent)
 
-## usage
+[PyQt4](http://www.riverbankcomputing.co.uk)
+
+## Using GUI  -  使用GUI版本
+
+> qtester.py
+
+> Generate an executable file python C:\\pyinstaller-2.0\\pyinstaller.py qtester.spec
+
+## Using command  -  使用命令行版本
 
     tester.py [-h] [--auth [AUTH]] [--acct {start,stop,update,on,off}]
                      [-u USERNAME] [-p PASSWORD] [-e {pap,chap}] [-n REQUESTS]
@@ -45,7 +55,7 @@ RadiusTester
 
 
 
-## packet attrs config
+## packet attrs config  消息属性配置
 
 Modify the configuration file tester.cfg
 
