@@ -1,6 +1,6 @@
 # -*- mode: python -*-
 a = Analysis(['qtester.py'],
-             pathex=['e:\\github\\RadiusTester'],
+             pathex=['z:\\github\\RadiusTester'],
              hiddenimports = ['gevent'],
              hookspath="")
 pyz = PYZ(a.pure)
@@ -13,4 +13,4 @@ exe = EXE(pyz,
           debug=False,
           strip=None,
           upx=True,
-          console=True , icon='tester.ico')
+          console=False , icon='tester.ico')

@@ -1,4 +1,5 @@
 #coding:utf-8
+import sys
 from gevent import monkey
 monkey.patch_all()
 from PyQt4 import QtCore, QtGui,uic
@@ -12,9 +13,9 @@ from pyrad.packet import AccessRequest
 import time
 import hashlib
 import six
-import sys
 import gevent
 import binascii
+import pprint
 
 md5_constructor = hashlib.md5
 
@@ -63,15 +64,29 @@ class TesterWin(QtGui.QMainWindow,form_class):
 
     def init_client(self):
         self.dict=Dictionary("dictionary")
-        self.server = self.server_addr.text()
-        self.authport = int(self.auth_port.text() or 1812)
-        self.acctport = int(self.acct_port.text() or 1813)
-        self.authsecret = str(self.auth_secret.text() or 'secret')
-        self.acctsecret = str(self.acct_secret.text() or 'secret')
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.sock.setsockopt(socket.SOL_SOCKET,socket.SO_RCVBUF,10240000)
-        self.sock.settimeout(self.timeout.value())  
+        self.sock.settimeout(self.timeout.value()) 
 
+
+    @property
+    def server(self):
+        return self.server_addr.text()
+
+    @property
+    def authport(self):
+        return int(self.auth_port.text() or 1812)
+
+    @property
+    def acctport(self):
+        return int(self.acct_port.text() or 1813)
+    @property
+    def authsecret(self):
+        return six.b(str(self.auth_secret.text() or 'secret'))
+    
+    @property
+    def acctsecret(self):
+        return six.b(str(self.acct_secret.text() or 'secret'))
 
     def encode_attr(self,key,val):
         if self.dict.has_key(key):
@@ -86,10 +101,8 @@ class TesterWin(QtGui.QMainWindow,form_class):
 
     def decode_attr(self,key,value):
         if self.dict.has_key(key):
-            # typ = self.dict[key].type
-            # if typ == 'octets':
-            #     return binascii.hexlify(value) 
-            return value
+            typ = self.dict[key].type
+            return tools.DecodeAttr(typ,value)
         else:
             self.logger("unknow attr %s"%key)              
 
@@ -147,10 +160,8 @@ class TesterWin(QtGui.QMainWindow,form_class):
     def sendauth(self,req):
         if self.is_debug.isChecked():
             attr_keys = req.keys()
-            self.logger("\nsend an authentication request")
-            self.logger("Attributes: ")        
-            for attr in attr_keys:
-                self.logger( ":::: %s: %s" % (attr, self.decode_attr(attr,req[attr][0])))  
+            self.logger(u"\nsend an authentication request to %s"%self.server)
+            self.logger(pprint.pformat(req))     
         self.sock.sendto(req.RequestPacket(),(self.server,self.authport)) 
         app.processEvents()
 
@@ -160,9 +171,7 @@ class TesterWin(QtGui.QMainWindow,form_class):
         if  self.is_debug.isChecked():
             attr_keys = req.keys()
             self.logger("\nsend an accounting request")
-            self.logger("Attributes: ")        
-            for attr in attr_keys:
-                self.logger( ":::: %s: %s" % (attr, self.decode_attr(attr,req[attr][0])))            
+            self.logger(pprint.pformat(req))              
         self.sock.sendto(req.RequestPacket(),(self.server,self.acctport)) 
         app.processEvents()
 
