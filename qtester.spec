@@ -12,5 +12,5 @@ exe = EXE(pyz,
           name=os.path.join('dist', 'qtester.exe'),
           debug=False,
           strip=None,
-          upx=True,
+          upx=False,
           console=False , icon='tester.ico')
