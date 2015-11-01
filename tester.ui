@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>942</width>
-    <height>540</height>
+    <width>962</width>
+    <height>570</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -33,7 +33,16 @@
        <string>服务器配置</string>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
-       <property name="margin">
+       <property name="leftMargin">
+        <number>6</number>
+       </property>
+       <property name="topMargin">
+        <number>6</number>
+       </property>
+       <property name="rightMargin">
+        <number>6</number>
+       </property>
+       <property name="bottomMargin">
         <number>6</number>
        </property>
        <item>
@@ -154,7 +163,7 @@
         </property>
         <property name="minimumSize">
          <size>
-          <width>420</width>
+          <width>460</width>
           <height>0</height>
          </size>
         </property>
@@ -171,6 +180,21 @@
          <bool>true</bool>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
          <item>
           <widget class="QTabWidget" name="tabWidget">
            <property name="minimumSize">
@@ -229,7 +253,7 @@
                    </sizepolicy>
                   </property>
                   <property name="text">
-                   <string>认证次数：</string>
+                   <string>测试次数：</string>
                   </property>
                  </widget>
                 </item>
@@ -246,6 +270,13 @@
                   </property>
                   <property name="maximum">
                    <number>1000000</number>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCommandLinkButton" name="send_auth_cmd">
+                  <property name="text">
+                   <string>发送</string>
                   </property>
                  </widget>
                 </item>
@@ -372,7 +403,7 @@
                </column>
                <column>
                 <property name="text">
-                 <string>发送 (0|1)</string>
+                 <string> 是否发送 (0|1)</string>
                 </property>
                </column>
                <item row="0" column="0">
@@ -467,111 +498,119 @@
                </item>
                <item row="6" column="0">
                 <property name="text">
-                 <string>Cisco-AVPair</string>
+                 <string/>
                 </property>
                </item>
                <item row="6" column="1">
                 <property name="text">
-                 <string>client-mac-address=5cff.350e.58a5</string>
+                 <string/>
                 </property>
                </item>
                <item row="6" column="2">
                 <property name="text">
-                 <string>0</string>
+                 <string/>
                 </property>
                </item>
                <item row="7" column="0">
                 <property name="text">
-                 <string>Cisco-AVPair</string>
+                 <string/>
                 </property>
                </item>
                <item row="7" column="1">
                 <property name="text">
-                 <string>sub-qos-policy-in=</string>
+                 <string/>
                 </property>
                </item>
                <item row="7" column="2">
                 <property name="text">
-                 <string>0</string>
+                 <string/>
                 </property>
                </item>
                <item row="8" column="0">
                 <property name="text">
-                 <string>Cisco-AVPair</string>
+                 <string/>
                 </property>
                </item>
                <item row="8" column="1">
                 <property name="text">
-                 <string>sub-qos-policy-out=</string>
+                 <string/>
                 </property>
                </item>
                <item row="8" column="2">
                 <property name="text">
-                 <string>0</string>
+                 <string/>
                 </property>
                </item>
                <item row="9" column="0">
                 <property name="text">
-                 <string>Cisco-AVPair</string>
+                 <string/>
                 </property>
                </item>
                <item row="9" column="1">
                 <property name="text">
-                 <string>addr-pool=</string>
+                 <string/>
                 </property>
                </item>
                <item row="9" column="2">
                 <property name="text">
-                 <string>0</string>
+                 <string/>
                 </property>
                </item>
                <item row="10" column="0">
                 <property name="text">
-                 <string>Huawei-Input-Average-Rate</string>
+                 <string/>
                 </property>
                </item>
                <item row="10" column="2">
                 <property name="text">
-                 <string>0</string>
+                 <string/>
                 </property>
                </item>
                <item row="11" column="0">
                 <property name="text">
-                 <string>Huawei-Input-Peak-Rate</string>
+                 <string/>
                 </property>
                </item>
                <item row="11" column="2">
                 <property name="text">
-                 <string>0</string>
+                 <string/>
                 </property>
                </item>
                <item row="12" column="0">
                 <property name="text">
-                 <string>Huawei-Output-Average-Rate</string>
+                 <string/>
+                </property>
+               </item>
+               <item row="12" column="1">
+                <property name="text">
+                 <string/>
                 </property>
                </item>
                <item row="12" column="2">
                 <property name="text">
-                 <string>0</string>
+                 <string/>
                 </property>
                </item>
                <item row="13" column="0">
                 <property name="text">
-                 <string>Huawei-Output-Peak-Rate</string>
+                 <string/>
+                </property>
+               </item>
+               <item row="13" column="1">
+                <property name="text">
+                 <string/>
                 </property>
                </item>
                <item row="13" column="2">
                 <property name="text">
-                 <string>0</string>
+                 <string/>
                 </property>
                </item>
-              </widget>
-             </item>
-             <item>
-              <widget class="QCommandLinkButton" name="send_auth_cmd">
-               <property name="text">
-                <string>发送</string>
-               </property>
+               <item row="14" column="2">
+                <property name="text">
+                 <string/>
+                </property>
+               </item>
               </widget>
              </item>
             </layout>
@@ -593,9 +632,42 @@
                 <string/>
                </property>
                <layout class="QGridLayout" name="gridLayout_2">
-                <property name="margin">
+                <property name="leftMargin">
                  <number>3</number>
                 </property>
+                <property name="topMargin">
+                 <number>3</number>
+                </property>
+                <property name="rightMargin">
+                 <number>3</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>3</number>
+                </property>
+                <item row="0" column="4">
+                 <widget class="QSpinBox" name="acct_times">
+                  <property name="minimum">
+                   <number>1</number>
+                  </property>
+                  <property name="maximum">
+                   <number>1000000</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QRadioButton" name="acct_on">
+                  <property name="text">
+                   <string>开始记账</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QRadioButton" name="acct_off">
+                  <property name="text">
+                   <string>停止记账</string>
+                  </property>
+                 </widget>
+                </item>
                 <item row="0" column="0">
                  <widget class="QRadioButton" name="acct_start">
                   <property name="text">
@@ -620,27 +692,17 @@
                   </property>
                  </widget>
                 </item>
-                <item row="1" column="0">
-                 <widget class="QRadioButton" name="acct_on">
+                <item row="1" column="2" colspan="3">
+                 <widget class="QCommandLinkButton" name="send_acct_cmd">
                   <property name="text">
-                   <string>开始记账</string>
+                   <string>发送</string>
                   </property>
                  </widget>
                 </item>
-                <item row="1" column="1">
-                 <widget class="QRadioButton" name="acct_off">
+                <item row="0" column="3">
+                 <widget class="QLabel" name="label_10">
                   <property name="text">
-                   <string>停止记账</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="2">
-                 <widget class="QSpinBox" name="acct_times">
-                  <property name="minimum">
-                   <number>1</number>
-                  </property>
-                  <property name="maximum">
-                   <number>1000000</number>
+                   <string>测试次数</string>
                   </property>
                  </widget>
                 </item>
@@ -803,7 +865,7 @@
                </column>
                <column>
                 <property name="text">
-                 <string>发送 (0|1)</string>
+                 <string>是否发送 (0|1)</string>
                 </property>
                </column>
                <item row="0" column="0">
@@ -988,13 +1050,6 @@
                </item>
               </widget>
              </item>
-             <item>
-              <widget class="QCommandLinkButton" name="send_acct_cmd">
-               <property name="text">
-                <string>发送</string>
-               </property>
-              </widget>
-             </item>
             </layout>
            </widget>
           </widget>
@@ -1006,7 +1061,7 @@
        <widget class="QGroupBox" name="groupBox_2">
         <property name="minimumSize">
          <size>
-          <width>400</width>
+          <width>460</width>
           <height>0</height>
          </size>
         </property>
@@ -1060,8 +1115,18 @@
               </property>
              </widget>
             </item>
+            <item>
+             <widget class="QCommandLinkButton" name="clearlog_cmd">
+              <property name="text">
+               <string>清除日志</string>
+              </property>
+             </widget>
+            </item>
            </layout>
           </widget>
+         </item>
+         <item>
+          <widget class="QTextBrowser" name="log_view"/>
          </item>
          <item>
           <widget class="QCheckBox" name="is_debug">
@@ -1070,16 +1135,6 @@
            </property>
            <property name="checked">
             <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QTextBrowser" name="log_view"/>
-         </item>
-         <item>
-          <widget class="QCommandLinkButton" name="clearlog_cmd">
-           <property name="text">
-            <string>清除日志</string>
            </property>
           </widget>
          </item>
@@ -1095,8 +1150,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>942</width>
-     <height>17</height>
+     <width>962</width>
+     <height>22</height>
     </rect>
    </property>
   </widget>

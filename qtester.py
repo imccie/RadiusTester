@@ -38,18 +38,16 @@ class AuthPacket2(AuthPacket):
         if isinstance(password, six.text_type):
             password = password.strip().encode('utf-8')
 
-        result = six.b(chr(self.id))
+        chapid = self.authenticator[0]
+        self['CHAP-Challenge'] = self.authenticator
+        return '%s%s' % (chapid,md5_constructor("%s%s%s"%(chapid,password,self.authenticator)).digest())
 
-        _pwd =  md5_constructor("%s%s%s"%(chr(self.id),password,self.authenticator)).digest()
-        for i in range(16):
-            result += _pwd[i]
-        return result
 
 app_running = True
 
 app = QtGui.QApplication(sys.argv)
 form_class, base_class = uic.loadUiType('tester.ui')
-# QtGui.QApplication.setStyle(QtGui.QStyleFactory.create("Cleanlooks"))
+QtGui.QApplication.setStyle(QtGui.QStyleFactory.create("Cleanlooks"))
 
 def mainloop(app):
     while app_running:
@@ -84,12 +82,12 @@ class TesterWin(QtGui.QMainWindow,form_class):
 
     def init_client(self):
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        self.sock.setsockopt(socket.SOL_SOCKET,socket.SO_RCVBUF,102400)
+        self.sock.setsockopt(socket.SOL_SOCKET,socket.SO_RCVBUF,8192000)
         self.sock.settimeout(self.timeout.value()) 
 
     def init_random_client(self):
         self.rsock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        self.rsock.setsockopt(socket.SOL_SOCKET,socket.SO_RCVBUF,102400)
+        self.rsock.setsockopt(socket.SOL_SOCKET,socket.SO_RCVBUF,8192000)
         self.rsock.settimeout(self.timeout.value())         
 
 
